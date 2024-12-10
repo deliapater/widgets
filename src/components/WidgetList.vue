@@ -1,11 +1,13 @@
 <template>
-    <div>
-        <h1>Product Widgets</h1>
+    <div class="container mx-auto px-6 py-8 bg-gray-100 rounded-lg shadow-lg">
+        <h1>Per product widgets</h1>
+        <div class="flex flex-wrap gap-6">
         <WidgetItem 
             v-for="widget in widgets"
             :key="widget.id"
             :widget="widget"
         />
+        </div>
     </div>
 </template>
 
