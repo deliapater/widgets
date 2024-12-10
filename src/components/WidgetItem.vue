@@ -1,29 +1,40 @@
 <template>
-  <div class="container mx-auto" :style="{ backgroundColor: widget.selectedColor }">
-    <p>
-      This product {{ widget.action }} {{ widget.amount }} {{ widget.type }}
-    </p>
-  </div>
-  <div>
-    <p>Link to Public Profile</p>
-    <label>
-      <input type="checkbox" :checked="widget.linked" @change="toggleLinked" />
-    </label>
-    <p>Badge colour</p>
-    <select v-model="selectedColor" @change="changeColor">
-      <option v-for="color in colors" :key="color" :value="color">
-        {{ color }}
-      </option>
-    </select>
-    <p>Activate badge</p>
-    <label class="switch">
-      <input
-        type="checkbox"
-        :checked="widget.active"
-        @change="handleSwitchChange"
-      />
-      <span class="slider"></span>
-    </label>
+  <div class="rounded-lg shadow-md">
+    <div
+      :style="{ backgroundColor: widget.selectedColor }"
+      class="text-customWhite w-[221.32px] h-[66px] p-4 mb-6 rounded-lg shadow-md"
+    >
+      <p class="text-[12px]">This product {{ widget.action }}</p>
+      <p class="text-[21px]">{{ widget.amount }} {{ widget.type }}</p>
+    </div>
+    <div class="text-customGreen">
+      <div class="inline-flex items-center gap-2">
+        <p>Link to Public Profile</p>
+        <label class="custom-checkbox">
+          <input
+            type="checkbox"
+            :checked="widget.linked"
+            @change="toggleLinked"
+            class="cursor-pointer"
+          />
+        </label>
+      </div>
+      <p>Badge colour</p>
+      <select v-model="selectedColor" @change="changeColor">
+        <option v-for="color in colors" :key="color" :value="color">
+          {{ color }}
+        </option>
+      </select>
+      <p>Activate badge</p>
+      <label class="switch">
+        <input
+          type="checkbox"
+          :checked="widget.active"
+          @change="handleSwitchChange"
+        />
+        <span class="slider"></span>
+      </label>
+    </div>
   </div>
 </template>
 
@@ -65,6 +76,42 @@ const changeColor = () => {
 </script>
 
 <style scoped>
+.custom-checkbox input {
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #000000;
+  border-radius: 4px; 
+  background-color: #fff;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.custom-checkbox input:checked {
+  background-color: #3B755F;
+  border-color: #3B755F;
+}
+
+.custom-checkbox input:checked {
+  background-color: #3B755F; 
+  border-color: #3B755F;
+}
+
+.custom-checkbox input:hover {
+  border-color: #AFC6BD;
+}
+
+.custom-checkbox input:checked::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  top: 2px;
+  left: 2px;
+  border-radius: 2px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -103,7 +150,7 @@ const changeColor = () => {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #3B755F;
 }
 
 input:checked + .slider:before {
