@@ -5,19 +5,25 @@
     </p>
   </div>
   <div>
-    <p>Link to Public Profile {{ widget.linked }}</p>
+    <p>Link to Public Profile</p>
+    <label>
+      <input type="checkbox" :checked="widget.linked" @change="toggleLinked" />
+    </label>
     <p>Badge colour</p>
     <select v-model="selectedColor" @change="changeColor">
       <option v-for="color in colors" :key="color" :value="color">
         {{ color }}
       </option>
     </select>
-    <p>
-      Activate badge
-      <button @click="toggleActive">
-        {{ widget.active ? "Deactivate" : "Activate" }}
-      </button>
-    </p>
+    <p>Activate badge</p>
+    <label class="switch">
+      <input
+        type="checkbox"
+        :checked="widget.active"
+        @change="handleSwitchChange"
+      />
+      <span class="slider"></span>
+    </label>
   </div>
 </template>
 
@@ -36,7 +42,7 @@ interface Widget {
 }
 
 const props = defineProps<{
-  widget: Widget; // Define the prop type here
+  widget: Widget;
 }>();
 
 const colors = ["white", "black", "blue", "green", "beige"];
@@ -45,8 +51,12 @@ const selectedColor = props.widget.selectedColor;
 
 const store = useStore();
 
-const toggleActive = () => {
-  store.commit("toggleActive", props.widget.id);
+const handleSwitchChange = () => {
+  store.commit("setActiveWidget", props.widget.id);
+};
+
+const toggleLinked = () => {
+  store.commit("toggleLinked", props.widget.id);
 };
 
 const changeColor = () => {
@@ -55,12 +65,48 @@ const changeColor = () => {
 </script>
 
 <style scoped>
-button {
-  cursor: pointer;
-  padding: 5px;
-  margin-top: 10px;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
 }
-select {
-  margin-top: 10px;
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
 }
 </style>

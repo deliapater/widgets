@@ -30,10 +30,15 @@ const store = createStore<State>({
     setWidgets(state, widgets: Widget[]) {
       state.widgets = widgets;
     },
-    toggleActive(state, id:number) {
+    setActiveWidget(state, id:number) {
+        state.widgets.forEach((widget) => {
+            widget.active = widget.id === id;
+          });
+    },
+    toggleLinked(state, id: number) {
         const widget = state.widgets.find((w) => w.id === id);
         if (widget) {
-            widget.active = !widget.active;
+            widget.linked = !widget.linked
         }
     },
     changeColor(state, { id, color }: { id: number, color: WidgetColor }) {
