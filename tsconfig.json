@@ -1,7 +1,27 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "resolveJsonModule": true,
+    "lib": ["esnext", "dom"]
+  },
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.app.json" }
+  ],
+  "include": [
+    "src/**/*.ts",    // Include all TypeScript files
+    "src/**/*.d.ts",   // Include type definitions
+    "src/**/*.tsx",    // Include TypeScript JSX files (if any)
+    "src/**/*.vue"     // Include Vue files in the project
   ]
 }

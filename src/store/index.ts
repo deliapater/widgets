@@ -1,16 +1,22 @@
 import { createStore } from 'vuex';
+import { defineProps } from 'vue';
 import axios from 'axios';
 
+type WidgetType = 'carbon' | 'plastic bottles' | 'trees';
+type WidgetAction = 'collects' | 'plants' | 'offsets';
+type WidgetColor = 'white' | 'black' | 'blue' | 'green' | 'beige';
+ 
 export interface Widget {
   id: number;
-  type: 'carbon' | 'plastic bottles' | 'trees';
+  type: WidgetType;
   amount: number;
-  action: 'collects' | 'plants' | 'offsets';
+  action: WidgetAction;
   active: boolean;
   linked: boolean;
-  selectedColor: 'white' | 'black' | 'blue' | 'green' | 'beige';
+  selectedColor: WidgetColor;
 }
 
+const props = defineProps<Widget>();
 
 export interface State {
   widgets: Widget[];
@@ -30,7 +36,7 @@ const store = createStore<State>({
             widget.active = !widget.active;
         }
     },
-    changeColor(state, { id, color }: { id: number, color: 'white' | 'black' | 'blue' | 'green' | 'beige' }) {
+    changeColor(state, { id, color }: { id: number, color: WidgetColor }) {
         const widget = state.widgets.find((w) => w.id === id);
         if (widget) {
             widget.selectedColor = color;
