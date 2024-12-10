@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ backgroundColor: widget.selectedColor }">
+  <div class="container mx-auto" :style="{ backgroundColor: widget.selectedColor }">
     <p>
       This product {{ widget.action }} {{ widget.amount }} {{ widget.type }}
     </p>
