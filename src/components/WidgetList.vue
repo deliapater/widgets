@@ -13,7 +13,7 @@
 import { useStore } from 'vuex';
 import { computed } from 'vue';
 import WidgetItem from './WidgetItem.vue';
-import { Widget } from '@/store'; 
+import { Widget } from '@/store'
 
 const store = useStore();
 

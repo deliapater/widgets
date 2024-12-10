@@ -1,7 +1,10 @@
 <template>
- <WidgetList />
+  <WidgetList />
 </template>
 
 <script setup lang="ts">
-import WidgetList from './components/WidgetList.vue';
+import { useStore } from "vuex";
+import WidgetList from "./components/WidgetList.vue";
+const store = useStore();
+store.dispatch("loadWidgets");
 </script>
