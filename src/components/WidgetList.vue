@@ -13,8 +13,9 @@
 import { useStore } from 'vuex';
 import { computed } from 'vue';
 import WidgetItem from './WidgetItem.vue';
+import { Widget } from '@/store'; 
 
 const store = useStore();
 
-const widget = computed(() => store.getters.allWidgets);
+const widgets =  computed<Widget[]>(() => store.getters.allWidgets);
 </script>
