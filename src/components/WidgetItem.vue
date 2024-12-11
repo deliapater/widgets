@@ -29,14 +29,16 @@
           Link to Public Profile
           <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
         </p>
-        <label class="form-check-label custom-checkbox pb-3 justify-end">
-          <input
-            type="checkbox"
-            :checked="widget.linked"
-            @change="toggleLinked"
-            class="cursor-pointer form-check-input pb-3"
-          />
-        </label>
+        <div class="custom-checkbox-wrapper">
+          <label class="form-check-label custom-checkbox pb-3 justify-end">
+            <input
+              type="checkbox"
+              :checked="widget.linked"
+              @change="toggleLinked"
+              class="cursor-pointer form-check-input pb-3"
+            />
+          </label>
+        </div>
       </div>
       <div class="flex justify-between items-center">
         <p>Badge colour</p>
@@ -134,6 +136,30 @@ const toggleLinked = () => {
 </script>
 
 <style scoped>
+.custom-checkbox-wrapper {
+  display: inline-block;
+  position: relative;
+}
+.custom-checkbox-wrapper input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: border-radius 0.3s ease, box-shadow 0.3s ease;
+}
+
 .custom-checkbox input:hover + .checkmark {
   border-color: var(--custom-green);
 }
