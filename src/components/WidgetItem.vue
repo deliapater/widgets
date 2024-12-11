@@ -50,8 +50,7 @@
             type="checkbox"
             :checked="widget.linked"
             @change="toggleLinked"
-            class="cursor-pointer form-check-input"
-        
+            class="cursor-pointer form-check-input pb-3"
           />
         </label>
       </div>
@@ -147,14 +146,27 @@ const toggleLinked = () => {
 </script>
 
 <style scoped>
+.custom-checkbox input:hover + .checkmark {
+  border-color: var(--custom-green);  
+}
 .custom-checkbox .form-check-input:checked {
   background-color: var(--custom-green);
   border-color: var(--custom-green); 
 }
 
+.custom-checkbox input:checked + .checkmark:hover {
+  box-shadow: 0px 0px 10px 4px var(--custom-green); 
+}
+
+.custom-checkbox input:checked + .checkmark {
+  border-radius: 50%; 
+  transition: box-shadow 0.3s ease-in-out; 
+}
+
 .custom-checkbox .form-check-input:checked:focus {
   box-shadow: 0 0 0 0.2rem var(--custom-green);
 }
+
 
 .switch {
   position: relative;

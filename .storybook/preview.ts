@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/vue3";
 import "../src/style.css";
 import { Store } from 'vuex'; 
 import store from "../src/store";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const parameters = {
   actions: {
