@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg shadow-md">
+  <div class="rounded-lg shadow-md w-[300px] mx-auto items-center">
     <div
       :style="{
         backgroundColor: colorMap[widget.selectedColor],
