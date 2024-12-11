@@ -5,7 +5,7 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 
 ## Product Widgets
-This project is a simple Vue 3 app where users can view and manage product widgets. Users can customize widget settings, including the color, active state, and whether the widget is linked to a public profile.
+This project is a simple Vue 3 app built with TypeScript, where users can view and manage product widgets. Users can customize widget settings, including the color, active state, and whether the widget is linked to a public profile.
 
 ### Features
 Display Product Widgets: Displays a list of product widgets.
@@ -56,6 +56,7 @@ The layout is designed to be mobile-first and responsive. On smaller screens (mo
 The title is centered on mobile screens and left-aligned on larger screens.
 
 #### Technologies Used
+TypeScript: Used for type safety and enhancing development efficiency with strong typing.
 Vue 3: The frontend framework for building the application.
 Vuex: Used for state management.
 Tailwind CSS: A utility-first CSS framework for rapid UI development.
