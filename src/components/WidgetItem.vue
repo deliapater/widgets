@@ -10,7 +10,7 @@
       }"
       class="text-customWhite p-4 mb-6 rounded-lg shadow-md"
     >
-      <div class="flex items-center gap-4">
+      <div class="flex gap-10">
         <div class="text-center flex flex-col items-center">
           <svg
             :style="{
