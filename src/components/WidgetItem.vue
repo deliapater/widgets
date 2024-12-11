@@ -42,7 +42,9 @@
     </div>
     <div class="text-customGreen space-y-4">
       <div class="inline-flex items-center gap-8">
-        <p>Link to Public Profile</p>
+        <p class="inline-flex">Link to Public Profile
+         <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
+        </p>
         <label class="custom-checkbox">
           <input
             type="checkbox"
