@@ -4,19 +4,19 @@
       :style="{
         backgroundColor: colorMap[widget.selectedColor],
         color:
-        widget.selectedColor === 'white' || widget.selectedColor === 'beige'
+          widget.selectedColor === 'white' || widget.selectedColor === 'beige'
             ? 'var(--custom-green)'
             : '',
       }"
-      class="text-customWhite p-4 mb-6 rounded-lg shadow-md"
+      class="text-customWhite px-4 pt-4 mb-6 rounded-lg shadow-md"
     >
       <div class="flex gap-10">
         <div class="text-center flex flex-col items-center">
           <svg
             :style="{
               fill:
-              widget.selectedColor === 'white' ||
-              widget.selectedColor === 'beige'
+                widget.selectedColor === 'white' ||
+                widget.selectedColor === 'beige'
                   ? 'var(--custom-green)'
                   : 'var(--custom-white)',
             }"
@@ -42,8 +42,9 @@
     </div>
     <div class="text-customGreen space-y-4">
       <div class="flex justify-between items-center">
-        <p class="inline-flex">Link to Public Profile
-         <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
+        <p class="inline-flex">
+          Link to Public Profile
+          <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
         </p>
         <label class="form-check-label custom-checkbox pb-3 justify-end">
           <input
@@ -83,14 +84,18 @@
       </div>
       <div class="flex justify-between items-center gap-12">
         <p>Activate badge</p>
-        <label class="switch">
-          <input
-            type="checkbox"
-            :checked="widget.active"
-            @change="handleSwitchChange"
-          />
-          <span class="slider"></span>
-        </label>
+        <div class="form-switch">
+          <label class="form-check-label">
+            <input
+              type="checkbox"
+              role="switch"
+              :checked="widget.active"
+              @change="handleSwitchChange"
+              class="form-check-input cursor-pointer hover:shadow-lg hover:shadow-custom-green"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -119,7 +124,7 @@ const colors = ["blue", "green", "beige", "white", "black"];
 const selectedColor = ref(props.widget.selectedColor);
 
 const changeColor = (event: Event) => {
-  const selectedValue = (event.target as HTMLInputElement).value
+  const selectedValue = (event.target as HTMLInputElement).value;
   store.commit("changeColor", {
     id: props.widget.id,
     color: selectedValue,
@@ -147,69 +152,46 @@ const toggleLinked = () => {
 
 <style scoped>
 .custom-checkbox input:hover + .checkmark {
-  border-color: var(--custom-green);  
+  border-color: var(--custom-green);
 }
 .custom-checkbox .form-check-input:checked {
   background-color: var(--custom-green);
-  border-color: var(--custom-green); 
+  border-color: var(--custom-green);
 }
 
 .custom-checkbox input:checked + .checkmark:hover {
-  box-shadow: 0px 0px 10px 4px var(--custom-green); 
+  box-shadow: 0px 0px 10px 4px var(--custom-green);
 }
 
 .custom-checkbox input:checked + .checkmark {
-  border-radius: 50%; 
-  transition: box-shadow 0.3s ease-in-out; 
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .custom-checkbox .form-check-input:checked:focus {
   box-shadow: 0 0 0 0.2rem var(--custom-green);
 }
-
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 34px;
-  height: 20px;
+.form-check-input:checked {
+  background-color: var(--custom-green);
+  border-color: var(--custom-green); 
+}
+.form-check-input:not(:checked) {
+  box-shadow: none; 
+}
+.form-check-input {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.form-check-input:hover {
+  box-shadow: 0px 0px 10px 2px var(--custom-green)
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 20px;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 14px;
-  width: 14px;
-  left: 3px;
-  bottom: 3px;
   background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: var(--custom-green);
-}
-
-input:checked + .slider:before {
-  transform: translateX(14px);
+  transition: background-color 0.3s ease;
 }
 </style>
