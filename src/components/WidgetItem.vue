@@ -73,8 +73,8 @@
               :style="{ backgroundColor: colorMap[color] }"
               class="w-6 h-6"
               :class="{
-                'border-2 border-gray-400': selectedColor === color,
-                'border-gray-300': selectedColor !== color,
+                'border-2 border-gray-400': widget.selectedColor === color,
+                'border-gray-300': widget.selectedColor !== color,
                 'hover:shadow-gray-500': true,
               }"
             ></span>
