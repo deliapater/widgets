@@ -4,7 +4,6 @@ import axios from 'axios';
 
 type WidgetType = 'carbon' | 'plastic bottles' | 'trees';
 type WidgetAction = 'collects' | 'plants' | 'offsets';
-type WidgetColor = 'white' | 'black' | 'blue' | 'green' | 'beige';
  
 export interface Widget {
   id: number;
@@ -13,13 +12,21 @@ export interface Widget {
   action: WidgetAction;
   active: boolean;
   linked: boolean;
-  selectedColor: WidgetColor;
+  selectedColor: string;
 }
 
 const props = defineProps<Widget>();
 
 export interface State {
   widgets: Widget[];
+}
+
+const colorMap: Record<string, string> = {
+    white: '#F9F9F9',
+    black: '#212121',
+    blue: '#2E3A8C',
+    green: '#3B755F',
+    beige: '#F2EBDB',
 }
 
 const store = createStore<State>({
@@ -41,10 +48,10 @@ const store = createStore<State>({
             widget.linked = !widget.linked
         }
     },
-    changeColor(state, { id, color }: { id: number, color: WidgetColor }) {
+    changeColor(state, { id, color }: { id: number, color: string}) {
         const widget = state.widgets.find((w) => w.id === id);
-        if (widget) {
-            widget.selectedColor = color;
+        if (widget && colorMap[color]) {
+            widget.selectedColor = colorMap[color];
         }
     },
   },

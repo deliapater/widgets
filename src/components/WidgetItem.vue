@@ -7,8 +7,8 @@
       <p class="text-[12px]">This product {{ widget.action }}</p>
       <p class="text-[21px]">{{ widget.amount }} {{ widget.type }}</p>
     </div>
-    <div class="text-customGreen">
-      <div class="inline-flex items-center gap-2">
+    <div class="text-customGreen space-y-4">
+      <div class="inline-flex items-center gap-8">
         <p>Link to Public Profile</p>
         <label class="custom-checkbox">
           <input
@@ -19,27 +19,48 @@
           />
         </label>
       </div>
-      <p>Badge colour</p>
-      <select v-model="selectedColor" @change="changeColor">
-        <option v-for="color in colors" :key="color" :value="color">
-          {{ color }}
-        </option>
-      </select>
-      <p>Activate badge</p>
-      <label class="switch">
-        <input
-          type="checkbox"
-          :checked="widget.active"
-          @change="handleSwitchChange"
-        />
-        <span class="slider"></span>
-      </label>
+      <div class="flex items-center gap-8">
+        <p>Badge colour</p>
+        <div class="flex items-center gap-1">
+          <label
+            v-for="color in colors"
+            :key="color"
+            class="flex items-center cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              :value="color"
+              v-model="selectedColor"
+              @change="changeColor"
+              class="hidden"
+            />
+            <span
+              :style="{ backgroundColor: colorMap[color] }"
+              class="w-6 h-6"
+              :class="
+                selectedColor === color ? 'border-black' : 'border-gray-300'
+              "
+            ></span>
+          </label>
+        </div>
+      </div>
+      <div class="flex items-center gap-12">
+        <p>Activate badge</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            :checked="widget.active"
+            @change="handleSwitchChange"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 import { useStore } from "vuex";
 
 interface Widget {
@@ -58,9 +79,24 @@ const props = defineProps<{
 
 const colors = ["white", "black", "blue", "green", "beige"];
 
-const selectedColor = props.widget.selectedColor;
+const selectedColor = ref(props.widget.selectedColor);
+
+const changeColor = () => {
+  store.commit("changeColor", {
+    id: props.widget.id,
+    color: selectedColor.value,
+  });
+};
 
 const store = useStore();
+
+const colorMap = {
+  white: "#F9F9F9",
+  black: "#212121",
+  blue: "#2E3A8C",
+  green: "#3B755F",
+  beige: "#F2EBDB",
+};
 
 const handleSwitchChange = () => {
   store.commit("setActiveWidget", props.widget.id);
@@ -68,10 +104,6 @@ const handleSwitchChange = () => {
 
 const toggleLinked = () => {
   store.commit("toggleLinked", props.widget.id);
-};
-
-const changeColor = () => {
-  store.commit("changeColor", { id: props.widget.id, color: selectedColor });
 };
 </script>
 
@@ -81,28 +113,28 @@ const changeColor = () => {
   height: 18px;
   width: 18px;
   border: 2px solid #000000;
-  border-radius: 4px; 
+  border-radius: 4px;
   background-color: #fff;
   transition: background-color 0.3s, border-color 0.3s;
   cursor: pointer;
 }
 
 .custom-checkbox input:checked {
-  background-color: #3B755F;
-  border-color: #3B755F;
+  background-color: var(--custom-green);
+  border-color: var(--custom-green);
 }
 
 .custom-checkbox input:checked {
-  background-color: #3B755F; 
-  border-color: #3B755F;
+  background-color: var(--custom-green);
+  border-color: var(--custom-green);
 }
 
 .custom-checkbox input:hover {
-  border-color: #AFC6BD;
+  border-color: #afc6bd;
 }
 
 .custom-checkbox input:checked::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 10px;
   height: 10px;
@@ -150,7 +182,7 @@ const changeColor = () => {
 }
 
 input:checked + .slider {
-  background-color: #3B755F;
+  background-color: var(--custom-green);
 }
 
 input:checked + .slider:before {
