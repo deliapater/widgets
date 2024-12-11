@@ -60,8 +60,7 @@ const store = createStore<State>({
       try {
         const response = await axios.get<Widget[]>('https://b795b019-1f84-41f4-93a3-a702d686c75a.mock.pstmn.io/product-widgets');
         const widgets = response.data.map((widget, index) => ({
-          ...widget,
-          active: false,
+          ...widget
         }));
         commit('setWidgets', widgets);
       } catch (error) {
