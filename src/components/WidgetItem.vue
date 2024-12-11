@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg shadow-md w-[300px] mx-auto items-center">
+  <div class="w-[300px] mx-auto items-center">
     <div
       :style="{
         backgroundColor: colorMap[widget.selectedColor],
@@ -41,11 +41,11 @@
       </div>
     </div>
     <div class="text-customGreen space-y-4">
-      <div class="inline-flex items-center gap-8">
+      <div class="flex justify-between items-center">
         <p class="inline-flex">Link to Public Profile
          <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
         </p>
-        <label class="custom-checkbox">
+        <label class="custom-checkbox justify-end">
           <input
             type="checkbox"
             :checked="widget.linked"
@@ -54,7 +54,7 @@
           />
         </label>
       </div>
-      <div class="flex items-center gap-8">
+      <div class="flex justify-between items-center gap-8">
         <p>Badge colour</p>
         <div class="flex items-center gap-1">
           <label
@@ -81,7 +81,7 @@
           </label>
         </div>
       </div>
-      <div class="flex items-center gap-12">
+      <div class="flex justify-between items-center gap-12">
         <p>Activate badge</p>
         <label class="switch">
           <input
