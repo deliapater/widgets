@@ -1,5 +1,7 @@
 <template>
-  <div class="container mx-auto flex flex-col mt-20 px-6 py-8 bg-gray-100 rounded-lg shadow-lg">
+  <div
+    class="container mx-auto flex flex-col mt-20 px-6 py-8 bg-gray-100 rounded-lg shadow-lg"
+  >
     <h1 class="text-left">Per product widgets</h1>
     <hr class="border-t-2 border-gray-400 my-4 w-full" />
     <div class="flex flex-col md:flex-row gap-10">
