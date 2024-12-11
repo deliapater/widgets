@@ -1,14 +1,18 @@
 import type { Preview } from "@storybook/vue3";
-import { app } from '@storybook/vue3';
-import '../src/style.css'; 
-import store from '../src/store';
+import "../src/style.css";
+import { Store } from 'vuex'; 
+import store from "../src/store";
 
 export const parameters = {
-  actions: { argTypesRegex: "^on.*" },
+  actions: {
+    argTypes: {
+      changeColor: { action: "changeColor" }, 
+      toggleLinked: { action: "toggleLinked" },
+    },
+  },
 };
 
 export const decorators = [
-  
   (story) => ({
     components: { story },
     template: `
@@ -16,6 +20,9 @@ export const decorators = [
         <story />
       </div>
     `,
+    provide: {
+      $store: store,
+    },
   }),
 ];
 
