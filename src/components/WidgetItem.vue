@@ -45,12 +45,13 @@
         <p class="inline-flex">Link to Public Profile
          <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
         </p>
-        <label class="custom-checkbox justify-end">
+        <label class="form-check-label custom-checkbox pb-3 justify-end">
           <input
             type="checkbox"
             :checked="widget.linked"
             @change="toggleLinked"
-            class="cursor-pointer"
+            class="cursor-pointer form-check-input"
+        
           />
         </label>
       </div>
@@ -146,40 +147,13 @@ const toggleLinked = () => {
 </script>
 
 <style scoped>
-.custom-checkbox input {
-  appearance: none;
-  height: 18px;
-  width: 18px;
-  border: 2px solid #000000;
-  border-radius: 4px;
-  background-color: #fff;
-  transition: background-color 0.3s, border-color 0.3s;
-  cursor: pointer;
-}
-
-.custom-checkbox input:checked {
+.custom-checkbox .form-check-input:checked {
   background-color: var(--custom-green);
-  border-color: var(--custom-green);
+  border-color: var(--custom-green); 
 }
 
-.custom-checkbox input:checked {
-  background-color: var(--custom-green);
-  border-color: var(--custom-green);
-}
-
-.custom-checkbox input:hover {
-  border-color: #afc6bd;
-}
-
-.custom-checkbox input:checked::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  top: 2px;
-  left: 2px;
-  border-radius: 2px;
+.custom-checkbox .form-check-input:checked:focus {
+  box-shadow: 0 0 0 0.2rem var(--custom-green);
 }
 
 .switch {
