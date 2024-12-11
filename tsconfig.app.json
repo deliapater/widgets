@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "composite": true  // Add this line to enable project references
+    "composite": true 
   },
   "include": [
     "src/**/*.ts",      

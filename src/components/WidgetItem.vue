@@ -1,7 +1,13 @@
 <template>
   <div class="rounded-lg shadow-md">
     <div
-      :style="{ backgroundColor: widget.selectedColor }"
+      :style="{
+        backgroundColor: colorMap[widget.selectedColor],
+        color:
+          widget.selectedColor === 'white' || widget.selectedColor === 'beige'
+            ? 'var(--custom-green)'
+            : '',
+      }"
       class="text-customWhite w-[221.32px] h-[66px] p-4 mb-6 rounded-lg shadow-md"
     >
       <p class="text-[12px]">This product {{ widget.action }}</p>
@@ -37,9 +43,11 @@
             <span
               :style="{ backgroundColor: colorMap[color] }"
               class="w-6 h-6"
-              :class="
-                selectedColor === color ? 'border-black' : 'border-gray-300'
-              "
+              :class="{
+                'border-2 border-gray-400': selectedColor === color,
+                'border-gray-300': selectedColor !== color,
+                'hover:shadow-gray-500': true,
+              }"
             ></span>
           </label>
         </div>

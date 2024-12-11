@@ -12,7 +12,10 @@ export default {
         customBlue: "#2E3A8C",
         customGreen: "#3B755F",
         customBeige: "F2EBDB"
-      }
+      },
+      boxShadow: {
+        '2xl': '0 25px 50px rgba(0, 0, 0, 0.25)'
+      },
     },
   },
   plugins: [],
