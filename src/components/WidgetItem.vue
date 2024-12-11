@@ -8,10 +8,20 @@
             ? 'var(--custom-green)'
             : '',
       }"
-      class="text-customWhite w-[221.32px] h-[66px] p-4 mb-6 rounded-lg shadow-md"
+      class="text-customWhite p-4 mb-6 rounded-lg shadow-md"
     >
-      <p class="text-[12px]">This product {{ widget.action }}</p>
-      <p class="text-[21px]">{{ widget.amount }} {{ widget.type }}</p>
+      <div class="flex items-center gap-4">
+        <div class="text-center flex flex-col items-center">
+        <img src="../assets/logo.png" alt="Logo" class="w-[33px] h-[33px]"/>
+        <p class="text-xs font-bold">greenspark</p>
+        </div>
+        <div>
+          <p class="text-[12px]">This product {{ widget.action }}</p>
+          <p class="text-[21px] font-bold">
+            {{ widget.amount }} {{ widget.type }}
+          </p>
+        </div>
+      </div>
     </div>
     <div class="text-customGreen space-y-4">
       <div class="inline-flex items-center gap-8">
@@ -85,7 +95,7 @@ const props = defineProps<{
   widget: Widget;
 }>();
 
-const colors = ["white", "black", "blue", "green", "beige"];
+const colors = ["blue", "green", "beige", "white", "black"];
 
 const selectedColor = ref(props.widget.selectedColor);
 
@@ -99,11 +109,11 @@ const changeColor = () => {
 const store = useStore();
 
 const colorMap = {
-  white: "#F9F9F9",
-  black: "#212121",
-  blue: "#2E3A8C",
-  green: "#3B755F",
-  beige: "#F2EBDB",
+  white: "var(--custom-white)",
+  black: "var(--custom-black)",
+  blue: "var(--custom-blue)",
+  green: "var(--custom-green)",
+  beige: "var(--custom-beige)",
 };
 
 const handleSwitchChange = () => {

@@ -12,6 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 
   --custom-green: #3B755F;
+  --custom-white: #F9F9F9;
+  --custom-black: #212121;
+  --custom-blue: #2E3A8C;
+  --custom-beige: #F2EBDB;
 }
 
 h1 {
