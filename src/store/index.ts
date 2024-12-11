@@ -50,8 +50,8 @@ const store = createStore<State>({
     },
     changeColor(state, { id, color }: { id: number, color: string}) {
         const widget = state.widgets.find((w) => w.id === id);
-        if (widget && colorMap[color]) {
-            widget.selectedColor = colorMap[color];
+        if (widget) {
+            widget.selectedColor = color;
         }
     },
   },

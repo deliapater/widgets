@@ -4,7 +4,7 @@
       :style="{
         backgroundColor: colorMap[widget.selectedColor],
         color:
-          widget.selectedColor === 'white' || widget.selectedColor === 'beige'
+        widget.selectedColor === 'white' || widget.selectedColor === 'beige'
             ? 'var(--custom-green)'
             : '',
       }"
@@ -15,8 +15,8 @@
           <svg
             :style="{
               fill:
-                widget.selectedColor === 'white' ||
-                widget.selectedColor === 'beige'
+              widget.selectedColor === 'white' ||
+              widget.selectedColor === 'beige'
                   ? 'var(--custom-green)'
                   : 'var(--custom-white)',
             }"
@@ -118,10 +118,11 @@ const colors = ["blue", "green", "beige", "white", "black"];
 
 const selectedColor = ref(props.widget.selectedColor);
 
-const changeColor = () => {
+const changeColor = (event: Event) => {
+  const selectedValue = (event.target as HTMLInputElement).value
   store.commit("changeColor", {
     id: props.widget.id,
-    color: selectedColor.value,
+    color: selectedValue,
   });
 };
 
