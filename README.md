@@ -16,6 +16,16 @@ Linked to Public Profile: Toggle the linked state of the widget.
 Responsive Design: The layout adjusts to different screen sizes (mobile-first design).
 Client-Side State Management: Vuex is used for managing the application state.
 
+# Screenshots
+### Desktop
+![Desktop](assets/screenshots/Desktop.png)
+
+### Tablet
+![Tablet](assets/screenshots/Tablet.png)
+
+### Mobile
+![Mobile](assets/screenshots/Mobile.png)
+
 ## Installation
 To get started with this project, follow these steps:
 
