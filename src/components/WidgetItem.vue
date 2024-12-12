@@ -29,16 +29,12 @@
           Link to Public Profile
           <img src="../assets/info.svg" alt="Info Icon" class="w-5 h-4" />
         </p>
-        <div class="custom-checkbox-wrapper">
-          <label class="form-check-label custom-checkbox pb-3 justify-end">
-            <input
-              type="checkbox"
-              :checked="widget.linked"
-              @change="toggleLinked"
-              class="cursor-pointer form-check-input pb-3"
-            />
-          </label>
-        </div>
+        <v-checkbox
+          v-model="widget.linked"
+          color="var(--custom-green)"
+          class="pt-3"
+          @change="toggleLinked"
+        />
       </div>
       <div class="flex justify-between items-center">
         <p>Badge colour</p>
@@ -69,17 +65,13 @@
       </div>
       <div class="flex justify-between items-center">
         <p>Activate badge</p>
-        <div class="form-switch">
-          <label class="form-check-label">
-            <input
-              type="checkbox"
-              role="switch"
-              :checked="widget.active"
-              @change="handleSwitchChange"
-              class="form-check-input cursor-pointer hover:shadow-lg"
-            />
-          </label>
-        </div>
+
+        <v-switch
+          v-model="widget.active"
+          @change="handleSwitchChange(($event.target.checked))"
+          :color="widget.active ? 'var(--custom-green)' : 'var(--custom-gray)'"
+          inset
+        ></v-switch>
       </div>
     </div>
   </div>
@@ -126,72 +118,17 @@ const colorMap = {
   beige: "var(--custom-beige)",
 };
 
-const handleSwitchChange = () => {
-  store.commit("setActiveWidget", props.widget.id);
+const handleSwitchChange = (value: boolean) => {
+  if (value) {
+    store.commit("setActiveWidget", props.widget.id);
+  } else {
+    store.commit("clearActiveWidget");
+  }
 };
-
-const toggleLinked = () => {
-  store.commit("toggleLinked", props.widget.id);
+const toggleLinked = (value: boolean) => {
+  store.commit("toggleLinked", { id: props.widget.id, value });
+  console.log("Checkbox changed:", event);
 };
 </script>
 
-<style scoped>
-.custom-checkbox-wrapper {
-  display: inline-block;
-  position: relative;
-}
-.custom-checkbox-wrapper input {
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #000000;
-  border-radius: 4px;
-  background-color: #fff;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  cursor: pointer;
-}
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  transition: border-radius 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-checkbox input:hover + .checkmark {
-  border-color: var(--custom-green);
-}
-.custom-checkbox .form-check-input:checked {
-  background-color: var(--custom-green);
-  border-color: var(--custom-green);
-}
-
-.custom-checkbox input:checked + .checkmark:hover {
-  box-shadow: 0px 0px 10px 4px var(--custom-green);
-}
-
-.custom-checkbox input:checked + .checkmark {
-  border-radius: 50%;
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.custom-checkbox .form-check-input:checked:focus {
-  box-shadow: 0 0 0 0.2rem var(--custom-green);
-}
-.form-check-input:checked {
-  background-color: var(--custom-green);
-  border-color: var(--custom-green);
-}
-.form-check-input:not(:checked) {
-  box-shadow: none;
-}
-.form-check-input {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.form-check-input:hover {
-  box-shadow: 0px 0px 10px 2px var(--custom-green);
-}
-</style>
+<style scoped></style>

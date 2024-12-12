@@ -13,7 +13,8 @@
       "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "types": ["vuetify"],
   },
   "references": [
     { "path": "./tsconfig.app.json" }

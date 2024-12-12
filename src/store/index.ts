@@ -37,10 +37,15 @@ const store = createStore<State>({
     setWidgets(state, widgets: Widget[]) {
       state.widgets = widgets;
     },
-    setActiveWidget(state, id:number) {
-        state.widgets.forEach((widget) => {
-            widget.active = widget.id === id;
-          });
+    setActiveWidget(state, id: number) {
+      state.widgets.forEach((widget) => {
+        widget.active = widget.id === id;
+      });
+    },
+    clearActiveWidget(state) {
+      state.widgets.forEach((widget) => {
+        widget.active = false;
+      });
     },
     toggleLinked(state, id: number) {
         const widget = state.widgets.find((w) => w.id === id);

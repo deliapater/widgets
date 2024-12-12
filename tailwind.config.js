@@ -16,6 +16,13 @@ export default {
       boxShadow: {
         '2xl': '0 25px 50px rgba(0, 0, 0, 0.25)'
       },
+      screens: {
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px',
+        xxl: '1400px'
+      },
     },
   },
   plugins: [],
