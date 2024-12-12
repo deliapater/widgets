@@ -24,10 +24,10 @@ h1 {
   text-underline-position: from-font;
   text-decoration-skip-ink: none; 
 }
-button:hover {
+/* button:hover {
   border-color: #646cff;
-}
-button:focus,
+} */
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */

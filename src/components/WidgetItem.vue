@@ -31,8 +31,7 @@
         </p>
         <v-checkbox
           v-model="widget.linked"
-          color="var(--custom-green)"
-          class="pt-3"
+          class="hover:opacity-20"
           @change="toggleLinked"
         />
       </div>
@@ -69,7 +68,7 @@
         <v-switch
           v-model="widget.active"
           @change="handleSwitchChange(($event.target.checked))"
-          :color="widget.active ? 'var(--custom-green)' : 'var(--custom-gray)'"
+          :color="widget.active ? 'var(--custom-green)' : 'var(--custom-white)'"
           inset
         ></v-switch>
       </div>
@@ -130,5 +129,3 @@ const toggleLinked = (value: boolean) => {
   console.log("Checkbox changed:", event);
 };
 </script>
-
-<style scoped></style>
