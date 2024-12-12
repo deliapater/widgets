@@ -127,6 +127,5 @@ const handleSwitchChange = (value: boolean) => {
 };
 const toggleLinked = (value: boolean) => {
   store.commit("toggleLinked", { id: props.widget.id, value });
-  console.log("Checkbox changed:", event);
 };
 </script>
