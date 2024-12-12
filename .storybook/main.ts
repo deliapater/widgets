@@ -8,11 +8,19 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
     '@storybook/addon-links',
-    '@storybook/addon-postcss',
+    '@storybook/addon-postcss'
   ],
   framework: {
     name: "@storybook/vue3-vite",
     options: {},
+  },
+  viteFinal: async (config) => {
+    return {
+      ...config,
+    };
+  },
+  typescript: {
+    check: false,
   }
 };
 export default config;

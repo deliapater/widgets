@@ -14,15 +14,21 @@
     },
     "resolveJsonModule": true,
     "lib": ["esnext", "dom"],
-    "types": ["vuetify"],
+    "types": ["vuetify", "@storybook/vue3"],
   },
   "references": [
     { "path": "./tsconfig.app.json" }
   ],
   "include": [
-    "src/**/*.ts",    // Include all TypeScript files
-    "src/**/*.d.ts",   // Include type definitions
-    "src/**/*.tsx",    // Include TypeScript JSX files (if any)
-    "src/**/*.vue"     // Include Vue files in the project
+    "src/**/*.ts",    
+    "src/**/*.d.ts",   
+    "src/**/*.tsx",   
+    "src/**/*.vue",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }

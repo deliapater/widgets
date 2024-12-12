@@ -1,8 +1,13 @@
 import type { Preview } from "@storybook/vue3";
+import { createVuetify } from 'vuetify';
 import "../src/style.css";
-import { Store } from 'vuex'; 
-import store from "../src/store";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import store from "../src/store/index.ts";
+import "@mdi/font/css/materialdesignicons.css";
+import { createApp } from 'vue';
+
+import '@mdi/font/css/materialdesignicons.css';
+
+const vuetify = createVuetify();
 
 export const parameters = {
   actions: {
@@ -14,18 +19,17 @@ export const parameters = {
 };
 
 export const decorators = [
-  (story) => ({
+  (story: any) => ({
     components: { story },
-    template: `
-      <div>
-        <story />
-      </div>
-    `,
-    provide: {
-      $store: store,
+    template: `<div class="v-app"><story /></div>`, 
+    setup() {
+      const app = createApp({});
+      app.use(vuetify); 
+      app.use(store);
     },
   }),
 ];
+
 
 const preview: Preview = {
   parameters: {

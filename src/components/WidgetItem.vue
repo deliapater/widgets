@@ -31,7 +31,7 @@
         </p>
         <v-checkbox
           v-model="widget.linked"
-          class="hover:opacity-20"
+          class="hover:opacity-20 mt-3"
           @change="toggleLinked"
         />
       </div>
@@ -70,6 +70,7 @@
           @change="handleSwitchChange($event.target.checked)"
           :color="widget.active ? 'var(--custom-green)' : 'var(--custom-white)'"
           inset
+          class="mt-5"
         ></v-switch>
       </div>
     </div>
