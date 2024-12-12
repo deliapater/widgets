@@ -18,13 +18,13 @@ Client-Side State Management: Vuex is used for managing the application state.
 
 # Screenshots
 ### Desktop
-![Desktop](assets/screenshots/Desktop.png)
+![Desktop](src/assets/screenshots/Desktop.png)
 
 ### Tablet
-![Tablet](assets/screenshots/Tablet.png)
+![Tablet](src/assets/screenshots/Tablet.png)
 
 ### Mobile
-![Mobile](assets/screenshots/Mobile.png)
+![Mobile]src/assets/screenshots/Mobile.png)
 
 ## Installation
 To get started with this project, follow these steps:
