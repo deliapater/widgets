@@ -52,15 +52,14 @@ The state stores the widget data.
 Mutations and actions are used to modify the state (e.g., setWidgets, toggleLinked, changeColor, etc.).
 
 #### Responsive Design
-The layout is designed to be mobile-first and responsive. On smaller screens (mobile), the widget list is displayed as a vertical stack. On larger screens, the widgets are displayed in a horizontal layout.
-The title is centered on mobile screens and left-aligned on larger screens.
+The layout is designed to be responsive and adaptable across various screen sizes. On smaller screens, elements are stacked vertically for optimal viewing and interaction. On larger screens, the layout transitions to a horizontal arrangement to utilize the available space effectively. The title dynamically adjusts its alignment—centered on smaller screens and left-aligned on larger ones—for a visually balanced experience.
 
 #### Technologies Used
 TypeScript: Used for type safety and enhancing development efficiency with strong typing.
 Vue 3: The frontend framework for building the application.
 Vuex: Used for state management.
 Tailwind CSS: A utility-first CSS framework for rapid UI development.
-Bootstrap: Used for some UI elements, such as switches and checkboxes.
+MaterialUi: Used for some UI elements, such as switches and checkboxes.
 Storybook: For building and testing UI components in isolation.
 
 ### Storybook (UI Component Testing)
