@@ -13,13 +13,10 @@ export default {
         customGreen: "#3B755F",
         customBeige: "F2EBDB"
       },
-      boxShadow: {
-        '2xl': '0 25px 50px rgba(0, 0, 0, 0.25)'
-      },
       screens: {
-        sm: '576px',
+        sm: '375px',
         md: '768px',
-        lg: '992px',
+        lg: '912px',
         xl: '1200px',
         xxl: '1400px'
       },
