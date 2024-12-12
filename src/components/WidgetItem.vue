@@ -67,7 +67,7 @@
 
         <v-switch
           v-model="widget.active"
-          @change="handleSwitchChange(($event.target.checked))"
+          @change="handleSwitchChange($event.target.checked)"
           :color="widget.active ? 'var(--custom-green)' : 'var(--custom-white)'"
           inset
         ></v-switch>
