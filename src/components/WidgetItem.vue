@@ -8,7 +8,7 @@
             ? 'var(--custom-green)'
             : '',
       }"
-      class="text-customWhite px-4 pt-4 mb-6 rounded-lg shadow-md"
+      class="text-customWhite px-4 py-4 mb-6 rounded-lg shadow-md"
     >
       <div class="flex gap-10">
         <div class="text-center flex flex-col items-center">
